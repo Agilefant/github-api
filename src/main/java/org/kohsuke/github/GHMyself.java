@@ -239,4 +239,11 @@ public class GHMyself extends GHUser {
     //// new Requester(root,ApiVersion.V3).withCredential().to("/user/emails");
     // root.retrieveWithAuth3()
     // }
+
+    public List<GHAppInstallation> getAppInstallations() throws IOException {
+        GHAppInstallations ghAppInstallations = root.createRequest()
+                .withUrlPath("/user/installations")
+                .fetch(GHAppInstallations.class);
+        return ghAppInstallations.getInstallations();
+    }
 }
